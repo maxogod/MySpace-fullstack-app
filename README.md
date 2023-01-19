@@ -2,7 +2,9 @@
 
 ## Django Full-Stack project
 
-It started from denis ivy StudyBud course and was changed and enhanced by me..
+This project started from dennis ivy's StudyBud course and was changed and enhanced by me..
+
+Read Features and watch the 4 minute video to see how it works!!
 
 ### Video of Website -> <https://www.youtube.com/watch?v=Ck2qWZ7Yrzc>
 
@@ -14,16 +16,22 @@ It started from denis ivy StudyBud course and was changed and enhanced by me..
 * run python manage.py runserver
 ```
 
+![Home](./readme_imgs/Home.png)
+
 ## Feautures
 
 ### + Log in/Sign up
 
 * You may use an email and password for this, or log in with GOOGLE (google oauth)
 
+![login](./readme_imgs/Login.png)
+
 ### + Edit profile
 
 * You can edit your profile information (picture, name, bio, etc)
 * Make it private (nobody can see your information exept your profile picture)
+
+![profile](./readme_imgs/Profile.png)
 
 ### + See other's profiles and report? them
 
@@ -31,9 +39,15 @@ It started from denis ivy StudyBud course and was changed and enhanced by me..
 * Once a user has been reported 10 times for the same reason their account, messages and spaces will be automatically deleted
 * When in someone's profile page you can see all messages they've sent and all spaces they've created (unless it's private)
 
+![other profile](./readme_imgs/other-profile.png)
+
+![report](./readme_imgs/report.png)
+
 ### + Change Themes
 
 * Switch between light and dark mode
+
+![dark](./readme_imgs/dark.png)
 
 ### + Create a space
 
@@ -42,6 +56,8 @@ It started from denis ivy StudyBud course and was changed and enhanced by me..
 * All spaces can be seen in the home page sorted by date
 * Share your mind, images and videos with everyone in the space
 * In private spaces no one who isnt in the participants list can see or say anything, but they can request an invitation which can be accepted or denied by the space's host
+
+![create space](./readme_imgs/create-space.png)
 
 ### + Edit a space
 
@@ -56,6 +72,8 @@ It started from denis ivy StudyBud course and was changed and enhanced by me..
 
 * All messages can be seen in the home page sorted by creation date
 * Option to completely delete the message
+
+![space](./readme_imgs/space.png)
 
 ### + Rest API
 
