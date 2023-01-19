@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+          rel="shortcut icon"
+          href="{% static 'images/logo.ico' %}"
+          type="image/x-icon"
+        />
+        <style>
+            h1, h2 {
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                text-align: center;
+                color: white;
+            }
+            ul, a {
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                text-align: center;
+                color: rgba(255, 255, 255, 0.541);
+                list-style: none;
+                transition: 0.25s;
+            }
+            a:hover {
+                color: aqua;
+            }
+            body::before {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                z-index: -1;
+                background-image: url("{% static 'images/lost.jpg' %}");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        </style>
+        <title>Lost</title>
+      </head>
+<body>
+    <h1>
+        Something went wrong
+    </h1>
+    <h2>and now You are Lost</h2>
+    <ul>
+        <li>
+            <a href="{% url 'home' %}">Back Home</a>
+        </li>
+        <li>
+            <a href="{% url 'user-profile' request.user.id %}">My Profile</a>
+        </li>
+    </ul>
+</body>
+</html>

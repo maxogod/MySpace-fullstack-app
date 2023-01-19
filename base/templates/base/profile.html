@@ -1,0 +1,86 @@
+
+{% extends 'main.html' %} 
+{% load static %}
+{% block content %}
+
+  <main class="profile-page layout layout--3">
+    <div class="container">
+      <!-- Topics Start -->
+      {% include 'base/topics_component.html' %}
+      <!-- Topics End -->
+
+      <!-- Room List Start -->
+      <div class="roomList">
+        <div class="profile">
+          <div class="profile__avatar">
+            <div class="avatar avatar--large active">
+              <img src="/static{{user.avatar.url}}" />
+            </div>
+          </div>
+          <div class="profile__info">
+            <h3>{{user.name}}</h3>
+            <p>@{{user.username}}</p>
+            
+            {% if request.user == user %}
+            <a href="{% url 'update-user' %}" class="btn btn--main btn--pill">Edit Profile</a>
+            {% else %}
+            <a href="{% url 'report' user.id %}" class="btn btn--main btn--pill">
+              Report
+            </a>
+            {% endif %}
+          </div>
+          <div class="profile__about">
+            <h3>About</h3>
+            <p class="link-True">
+              {% if user.private and request.user != user %}
+              <img class="lock" id="lock" src="{% static 'images/lock.svg' %}" alt="lock" style="height: 20px; width: 20px;"> This account is private
+              {% else %}
+                {% if user.bio %}
+                {{user.bio}}
+                {% else %}
+                Hey im {{user.username}}! I'm using MySpace!
+                {% endif %}
+              {% endif %}
+            </p>
+          </div>
+        </div>
+
+        <div class="roomList__header">
+          <div>
+            <h2>Spaces Hosted by {{user.username}}</a>
+            </h2>
+          </div>
+        </div>
+        {% if user.private and request.user != user %}
+        <div class="roomListRoom">
+          <div class="roomListRoom__content">
+            <a style="cursor: default;">Private</a>
+          </div>
+        </div>
+        {% else %}
+        {% include 'base/feed_component.html' %}
+        {% endif %}
+      </div>
+      <!-- Room List End -->
+
+      <!-- Activities Start -->
+      {% if user.private and request.user != user %}
+      <div class="activities">
+        <div class="activities__header">
+          <h2>Recent Activities</h2>
+        </div>
+        <div class="activities__box">
+          <div class="activities__boxContent">
+            <div class="activities__boxRoomContent link-{{message.contains_link}}">
+              Private
+            </div>
+          </div>
+        </div>
+      </div>
+      {% else %}
+        {% include 'base/activity_component.html' %}
+      {% endif %}
+      <!-- Activities End -->
+    </div>
+  </main>
+{% endblock content %}

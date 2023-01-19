@@ -1,0 +1,185 @@
+{% extends 'main.html' %} {% load socialaccount %} {% block content %}
+
+<main class="auth layout">
+  {% if page == 'login' %}
+
+  <div class="container">
+    <div class="layout__box">
+      <div class="layout__boxHeader">
+        <div class="layout__boxTitle">
+          <h3>Login</h3>
+        </div>
+      </div>
+      <div class="layout__body">
+        <h2 class="auth__tagline">Welcome to the ship</h2>
+
+        <form class="form" action="" method="POST">
+          {% csrf_token %}
+          <div class="form__group form__group">
+            <label for="room_name">Email</label>
+            <input
+              id="username"
+              name="email"
+              type="text"
+              placeholder="e.g. name@email.com"
+            />
+          </div>
+          <div class="form__group">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
+            />
+          </div>
+
+          <button class="btn btn--main" type="submit">
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+            >
+              <title>lock</title>
+              <path
+                d="M27 12h-1v-2c0-5.514-4.486-10-10-10s-10 4.486-10 10v2h-1c-0.553 0-1 0.447-1 1v18c0 0.553 0.447 1 1 1h22c0.553 0 1-0.447 1-1v-18c0-0.553-0.447-1-1-1zM8 10c0-4.411 3.589-8 8-8s8 3.589 8 8v2h-16v-2zM26 30h-20v-16h20v16z"
+              ></path>
+              <path
+                d="M15 21.694v4.306h2v-4.306c0.587-0.348 1-0.961 1-1.694 0-1.105-0.895-2-2-2s-2 0.895-2 2c0 0.732 0.413 1.345 1 1.694z"
+              ></path>
+            </svg>
+
+            Login
+          </button>
+
+          <a
+            id="btn-a"
+            class="btn btn--main"
+            href="{% provider_login_url 'google' %}?next=/"
+          >
+            <svg
+              fill="#000000"
+              height="800px"
+              width="800px"
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 210 210"
+              xml:space="preserve"
+            >
+              <path
+                d="M0,105C0,47.103,47.103,0,105,0c23.383,0,45.515,7.523,64.004,21.756l-24.4,31.696C133.172,44.652,119.477,40,105,40
+	c-35.841,0-65,29.159-65,65s29.159,65,65,65c28.867,0,53.398-18.913,61.852-45H105V85h105v20c0,57.897-47.103,105-105,105
+	S0,162.897,0,105z"
+              />
+            </svg>
+
+            Login With Google
+          </a>
+        </form>
+
+        {% if messages %}
+
+        <ul class="messages" style="color: red; list-style-type: none">
+          {% for message in messages %}
+          <li>{{message}}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+
+        <div class="auth__action">
+          <p>Haven't signed up yet?</p>
+          <a href="{% url 'register' %}" class="btn btn--link">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <div class="container">
+    <div class="layout__box">
+      <div class="layout__boxHeader">
+        <div class="layout__boxTitle">
+          <h3>Register</h3>
+        </div>
+      </div>
+      <div class="layout__body">
+        <h2 class="auth__tagline">Welcome to the ship</h2>
+
+        <form class="form" action="" method="POST">
+          {% csrf_token %} {% for field in form %}
+
+          <div class="form__group form__group">
+            <label for="room_name">{{field.label}}</label>
+            {{field}}
+          </div>
+          {% endfor %}
+
+          <button class="btn btn--main" type="submit">
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+            >
+              <title>lock</title>
+              <path
+                d="M27 12h-1v-2c0-5.514-4.486-10-10-10s-10 4.486-10 10v2h-1c-0.553 0-1 0.447-1 1v18c0 0.553 0.447 1 1 1h22c0.553 0 1-0.447 1-1v-18c0-0.553-0.447-1-1-1zM8 10c0-4.411 3.589-8 8-8s8 3.589 8 8v2h-16v-2zM26 30h-20v-16h20v16z"
+              ></path>
+              <path
+                d="M15 21.694v4.306h2v-4.306c0.587-0.348 1-0.961 1-1.694 0-1.105-0.895-2-2-2s-2 0.895-2 2c0 0.732 0.413 1.345 1 1.694z"
+              ></path>
+            </svg>
+
+            Register
+          </button>
+
+          <a
+            id="btn-a"
+            class="btn btn--main"
+            href="{% provider_login_url 'google' %}?next=/"
+          >
+            <svg
+              fill="#000000"
+              height="800px"
+              width="800px"
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 210 210"
+              xml:space="preserve"
+            >
+              <path
+                d="M0,105C0,47.103,47.103,0,105,0c23.383,0,45.515,7.523,64.004,21.756l-24.4,31.696C133.172,44.652,119.477,40,105,40
+	c-35.841,0-65,29.159-65,65s29.159,65,65,65c28.867,0,53.398-18.913,61.852-45H105V85h105v20c0,57.897-47.103,105-105,105
+	S0,162.897,0,105z"
+              />
+            </svg>
+
+            Signup With Google
+          </a>
+        </form>
+
+        {% if messages %}
+
+        <ul class="messages">
+          {% for message in messages %}
+          <li>{{message}}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+
+        <div class="auth__action">
+          <p>Already signed up?</p>
+          <a href="{% url 'login' %}" class="btn btn--link">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</main>
+{% endblock content %}

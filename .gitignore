@@ -1,0 +1,4 @@
+/venv
+oauth_credentials.txt
+db.sqlite3
+.env
