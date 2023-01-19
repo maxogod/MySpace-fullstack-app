@@ -2,7 +2,7 @@
 
 ## Django Full-Stack project
 
-This project started from dennis ivy's StudyBud course and was changed and enhanced by me..
+This project started from [dennis ivy's](https://www.dennisivy.com/) StudyBud course and was changed and enhanced by me..
 
 Read Features and watch the 4 minute video to see how it works!!
 
